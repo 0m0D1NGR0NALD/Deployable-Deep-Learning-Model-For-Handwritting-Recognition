@@ -55,3 +55,10 @@ model.fit(x_train,y_train,batch_size=batch_size,epochs=epochs,verbose=1,validati
 score = model.evaluate(x_test,y_test,verbose=0)
 print('Test Loss: ',score[0])
 print('Test Accuracy: ',score[1])
+
+# Saving the model for future inferences
+model_json = model.to_json()
+with open("model.json","w") as json_file:
+    json_file.write(model_json)
+# Serialize weihgts to HDF5
+model.save_weights("model.h5")
