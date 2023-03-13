@@ -42,8 +42,11 @@ model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Dropout(0.25))
 model.add(Flatten())
 model.add(Dense(128,activation='relu'))
-model.add(Dropout(0.5))
+model.add(Dropout(0.5)) 
 model.add(Dense(num_classes,activation='softmax'))
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
+
+# Training the Model
+model.fit(x_train,y_train,batch_size=batch_size,epochs=epochs,verbose=1,validation_data=(x_test,y_test))
