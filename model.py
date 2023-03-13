@@ -7,7 +7,7 @@ from keras import backend as K
 # Defining hyperparameters
 num_classes = 10
 batch_size = 128
-epochs = 10
+epochs = 5
 
 # Image resolution
 rows,columns = 28,28
